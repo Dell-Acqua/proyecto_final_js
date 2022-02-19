@@ -1,39 +1,112 @@
-            //DECLARO EL ARRAY CON PRODUCTOS            
-            let productos = [{
-                producto: "LECHUGA",
-                precio: 100,
-                stock: 150
-            }, {
-                producto: "RUCULA",
-                precio: 150,
-                stock: 200
-            }];
-            
-            //DECLARO VARIABLES CON EL INGRESO DEL USUARIO Y ARMO FUNCION PARA CALCULAR STOCK
-            
+let stockLechugas = 150;
+let stockRuculas = 180;
+let stockAlbahacas = 40;
+let stockTomates = 80;
 
-            let ingresoProducto = prompt("Ingrese el producto a modificar stock: \nLECHUGA o RUCULA \nO escriba SALIR");
-            while (ingresoProducto != "SALIR") {
-            
-            if (ingresoProducto == "LECHUGA" || ingresoProducto == "RUCULA") { 
-            let ingresoStock = prompt("Ingrese las nuevas unidades a agregar o eliminar",0);
-            let ingresoParseado = parseInt(ingresoStock);
-                   
+let lechugas = localStorage.setItem('lechuga' , stockLechugas);
+let ruculas = localStorage.setItem('rucula' , stockRuculas);
+let albahacas = localStorage.setItem('albahaca' , stockAlbahacas);
+let tomates = localStorage.setItem('tomate' , stockTomates);
 
-            productos.map(function(dato){
-              if(dato.producto == ingresoProducto){
-                  dato.stock = dato.stock + ingresoParseado;
-              }
-              
-              return dato; 
-            });
-            
-            console.log("El stock de los productos es:");
-            console.log(productos);
-        }
-        else {
-            alert("El producto "+ingresoProducto+" no existe en el stock. \nPor favor vuelva a intentarlo");
-            
-        }
-        ingresoProducto = prompt("Ingrese el producto a modificar stock: \nLECHUGA o RUCULA");
+let stockDeLechugas = localStorage.getItem('lechuga');
+let stockDeRuculas = localStorage.getItem('rucula');
+let stockDeAlbahacas = localStorage.getItem('albahaca');
+let stockDeTomates = localStorage.getItem('tomate');
+
+
+let mostrarStockLechugas = document.getElementById("stockLechugas");
+let mostrarStockRuculas = document.getElementById("stockRuculas");
+let mostrarStockAlbahacas = document.getElementById("stockAlbahacas");
+let mostrarStockTomates = document.getElementById("stockTomates");
+
+mostrarStockLechugas.innerText = stockDeLechugas;
+mostrarStockRuculas.innerText = stockDeRuculas;
+mostrarStockAlbahacas.innerText = stockDeAlbahacas;
+mostrarStockTomates.innerText = stockDeTomates;
+
+
+let botonLechugas = document.getElementById("btnLechugas");
+let botonRuculas = document.getElementById("btnRuculas");
+let botonAlbahacas = document.getElementById("btnAlbahacas");
+let botonTomates = document.getElementById("btnTomates");
+let botonLimpiarStock = document.getElementById("btnLimpiarStock");
+
+
+
+//EVENTOS DE LOS BOTONES
+botonLechugas.addEventListener("click", modificarStockLechugas);
+botonRuculas.addEventListener("click", modificarStockRuculas);
+botonAlbahacas.addEventListener("click", modificarStockAlbahacas);
+botonTomates.addEventListener("click", modificarStockTomates);
+botonLimpiarStock.addEventListener("click", limpiarStock);
+
+
+//FUNCIONES
+function modificarStockLechugas (){
+    let inputValue = parseInt(document.getElementById("modificarStockLechugas").value);
+    if (inputValue){
+        stockLechugas += inputValue;
+        lechugas = localStorage.setItem('lechuga' , stockLechugas);
+        stockDeLechugas = localStorage.getItem('lechuga');
+        mostrarStockLechugas.innerText = stockLechugas; 
     }
+  }
+
+function modificarStockRuculas () {
+    let inputValue = parseInt(document.getElementById("modificarStockRuculas").value);
+    if (inputValue){
+       stockRuculas += inputValue;
+       ruculas = localStorage.setItem('rucula' , stockRuculas);
+       stockDeRuculas = localStorage.getItem('rucula');
+       mostrarStockRuculas.innerText = stockRuculas;
+    }
+  }
+
+function modificarStockAlbahacas () {
+    let inputValue = parseInt(document.getElementById("modificarStockAlbahacas").value);
+    if (inputValue){
+        stockAlbahacas += inputValue;
+        albahacas = localStorage.setItem('albahaca' , stockAlbahacas);
+        stockDeAlbahacas = localStorage.getItem('albahaca');
+        mostrarStockAlbahacas.innerText = stockAlbahacas;
+    }
+  }
+
+function modificarStockTomates () {
+    let inputValue = parseInt(document.getElementById("modificarStockTomates").value);
+    if (inputValue){ 
+        stockTomates += inputValue;
+        tomates = localStorage.setItem('tomate' , stockTomates);
+        stockDeTomates = localStorage.getItem('tomate');
+        mostrarStockTomates.innerText = stockTomates;
+    } 
+  }
+
+function limpiarStock () {
+  stockLechugas = 0;
+  stockRuculas = 0;
+  stockAlbahacas = 0;
+  stockTomates = 0;
+  stockDeLechugas = localStorage.getItem('lechuga');
+  mostrarStockLechugas.innerText = stockLechugas; 
+  stockDeRuculas = localStorage.getItem('rucula');
+  mostrarStockRuculas.innerText = stockRuculas;
+  stockDeAlbahacas = localStorage.getItem('albahaca');
+  mostrarStockAlbahacas.innerText = stockAlbahacas;
+  stockDeTomates = localStorage.getItem('tomate');
+  mostrarStockTomates.innerText = stockTomates;
+  localStorage.clear();
+}
+
+
+//Paso a JSON y muestro por consola los distintos stocks iniciales
+let lechugasEnJSON = JSON.stringify(stockDeLechugas);
+let ruculasEnJSON = JSON.stringify(stockDeRuculas);
+let albahacasEnJSON = JSON.stringify(stockDeAlbahacas);
+let tomatesEnJSON = JSON.stringify(stockDeTomates);
+
+
+console.log("El stock inicial de Lechugas es: " +lechugasEnJSON);
+console.log("El stock inicial de Ruculas es: " +ruculasEnJSON);
+console.log("El stock inicial de Albahacas es: " +albahacasEnJSON);
+console.log("El stock inicial de Tomates es: " +tomatesEnJSON);

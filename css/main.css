@@ -1,0 +1,71 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f1f2f1; }
+
+#head {
+  display: block;
+  margin: auto; }
+
+.logo-animado {
+  animation: logo 5s 2; }
+
+@keyframes logo {
+  50% {
+    transform: rotatey(180deg); } }
+
+.menu {
+  position: sticky;
+  top: 0px; }
+
+.nav-item {
+  padding-left: 50px;
+  padding-right: 50px; }
+
+.listascss {
+  list-style-image: url(../img/vineta4.png); }
+
+.pie {
+  background-color: white;
+  position: sticky;
+  bottom: 0px;
+  padding-left: 10px;
+  padding-right: 10px; }
+
+/*ACA USAMOS OPERACIONES*/
+.primera {
+  padding-top: 20px; }
+
+.marco {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: 3px solid #CD212A;
+  border-radius: 22px; }
+
+.titulo {
+  text-align: center; }
+
+.ventajas {
+  padding-left: 20px; }
+
+.tipos {
+  padding-top: 25px; }
+
+.tipos2 {
+  padding-top: 80px; }
+
+.etiqueta-producto {
+  background-color: #f1f2f1;
+  font-weight: bold;
+  border-radius: 22px; }
+
+/*Aca usamos mixins*/
+.plantines img {
+  width: 100%; }
+
+@media (max-width: 768px) {
+  .plantines {
+    display: none; } }
+
+.card-title {
+  font-weight: bold;
+  justify-content: center; }
