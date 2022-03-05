@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "nombre": "Lechuga",
+        "precio": 150,
+        "stock": 200,
+        "imagen": "../img/IMG_20201102_103108.jpg",
+        "stock_ok": true
+    },
+    {
+        "id": 2,
+        "nombre": "Rucula",
+        "precio": 180,
+        "stock": 250,
+        "imagen": "../img/IMG_20201030_163004.jpg",
+        "stock_ok": true
+    },
+    {
+        "id": 3,
+        "nombre": "Tomate",
+        "precio": 500,
+        "stock": 450,
+        "imagen": "../img/IMG_20201130_115451.jpg",
+        "stock_ok": true
+    },
+    {
+        "id": 4,
+        "nombre": "Kit Germinacion",
+        "precio": 1500,
+        "stock": 50,
+        "imagen": "../img/Kit_Germinacion.jpg",
+        "stock_ok": true
+    },
+    {
+        "id": 5,
+        "nombre": "Kit HidroHome",
+        "precio": 4500,
+        "stock": 30,
+        "imagen": "../img/Kit_HidroHome.jpg",
+        "stock_ok": true
+    },
+    {
+        "id": 6,
+        "nombre": "Kit Soluciones",
+        "precio": 1900,
+        "stock": 90,
+        "imagen": "../img/Kit_Soluciones.jpg",
+        "stock_ok": true
+    }  
+]
