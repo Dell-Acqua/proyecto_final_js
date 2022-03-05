@@ -82,7 +82,7 @@ function compraTotal() {
     const carritoTotal = document.querySelector('.carritoTotal')
 
     carrito.forEach((item) => {
-        const precio = Number(item.precio.replace("$", ''))
+        const precio = parseInt(item.precio.replace("$", ''))
         total = total + precio*item.cantidad
     })
     carritoTotal.innerHTML = `Total $${total}`
